@@ -1,6 +1,4 @@
 const { User } = require("../models/userModel");
-const { GenderEnum } = require("../models/genderEnum");
-const { Degrees, Religions, Origins, Interests } = require("../util/localData");
 const HttpError = require('../util/HttpError');
 const {errorHandler} = require("../util/util");
 
@@ -20,18 +18,20 @@ const getUserById = errorHandler(async (req, res) => {
 async function getAllUsers(req, res, next) {
   try {
     const users = await User.find();
-    if (users.length === 0) return res.send("No users");
+    if (users.length === 0) {
+      return new HttpError(400, 'No users found').toJSON();
+    }
+    
     res.send(users);
   } catch (err) {
     res.sendStatus(400);
   }
 }
 
-
 async function updateWard(req, res, next) {
   try {
-    const oldUser = await User.updateOne({ name: "wared" }, { age: 200 });
-    res.send(oldUser);
+   // const oldUser = await User.updateOne({ name: "wared" }, { age: 200 });
+    res.send("hello");
   } catch (err) {
     res.sendStatus(400);
   }

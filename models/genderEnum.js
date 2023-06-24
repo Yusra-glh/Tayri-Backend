@@ -1,5 +1,5 @@
 const GenderEnum = Object.freeze({
-    Men: "Men",
+    Men: "Man",
     Women: "Women",
   });
 
