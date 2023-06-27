@@ -24,6 +24,7 @@ const route = express.Router();
 
 route.post("/signup",upload.array("gallery", 10), signupStep1,isPhoneVerified,signupStep2,signupStep3,signupFinalStep);
 
+
 // route.post("/signup", signupStep1,signupStep2,signupStep3,signup,upload.array("gallery", 10),(req,res)=>{
 //   res.send("hello")
 // });
